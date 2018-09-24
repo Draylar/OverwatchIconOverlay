@@ -2,6 +2,7 @@ package com.github.draylar;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -19,6 +20,8 @@ public class RankIcon extends GridPane {
         configureConstraints();
         addIconImage();
     }
+
+
 
 
     private void addIconImage() {

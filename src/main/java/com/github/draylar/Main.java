@@ -2,6 +2,7 @@ package com.github.draylar;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -23,7 +24,14 @@ public class Main extends Application {
         setupStageSettings();
         setupDragControls();
 
-        primaryStage.setScene(new Scene(rankIcon, 100, 100, Color.TRANSPARENT));
+        Scene scene = new Scene(rankIcon, 100, 100, Color.TRANSPARENT);
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.U) {
+                rankIcon.setVisible(!rankIcon.isVisible());
+            }
+        });
+
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
