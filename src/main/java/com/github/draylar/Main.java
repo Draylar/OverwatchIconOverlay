@@ -11,10 +11,10 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
-    private int iconHeight = 55;
-    private int iconWidth = 55;
+    private static int iconHeight = 55;
+    private static int iconWidth = 55;
 
-    private RankIcon rankIcon = new RankIcon(iconWidth, iconHeight);
+    private static RankIcon rankIcon = new RankIcon(iconWidth, iconHeight);
     private Stage stage;
 
     @Override
@@ -23,6 +23,7 @@ public class Main extends Application {
 
         setupStageSettings();
         setupDragControls();
+        setupSystemTray();
 
         Scene scene = new Scene(rankIcon, 100, 100, Color.TRANSPARENT);
         scene.setOnKeyPressed(e -> {
@@ -33,6 +34,17 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+
+    public static void setCurrentRankIcon(String icon) {
+        rankIcon.setIconImage(icon);
+    }
+
+
+    private void setupSystemTray() {
+        SystemTrayInitializer initializer = new SystemTrayInitializer();
+        initializer.initIcon();
     }
 
 

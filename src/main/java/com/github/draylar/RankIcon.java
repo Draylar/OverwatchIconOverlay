@@ -13,24 +13,25 @@ public class RankIcon extends GridPane {
     private int width;
     private int height;
 
+    private Image iconImage;
+    private ImageView imageView = new ImageView();
+
     public RankIcon(int width, int height) {
         this.width = width;
         this.height = height;
 
         configureConstraints();
-        addIconImage();
+        setIconImage("grandmaster");
+
+        this.add(imageView, 10, 90);
     }
 
 
-
-
-    private void addIconImage() {
-        Image image = new Image(getClass().getResource("/120px-Badge_7_Grandmaster.png").toString());
-        ImageView imageView = new ImageView(image);
+    public void setIconImage(String icon) {
+        iconImage = new Image(getClass().getResource("/" + icon + ".png").toString());
+        imageView.setImage(iconImage);
         imageView.setFitHeight(height);
         imageView.setFitWidth(width);
-
-        this.add(imageView, 10, 90);
     }
 
 
